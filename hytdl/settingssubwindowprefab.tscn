@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqxe4051x8oi4"]
+
+[ext_resource type="Script" path="res://scripts/Settings.gd" id="1_j2p1g"]
+[ext_resource type="Texture2D" uid="uid://bxtuj7l6ce5ow" path="res://res/saex.png" id="2_7kwo2"]
+
+[node name="SETTINGSSUB" type="Node2D"]
+script = ExtResource("1_j2p1g")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.733333, 0.733333, 0.733333, 1)
+polygon = PackedVector2Array(0, 0, 360, 0, 360, 640, 0, 640)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 0, 640, 8, 640, 8, 0)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(352, 0, 352, 328, 352, 640, 360, 640, 360, 344, 360, 0)
+
+[node name="Polygon2D4" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(8, 0, 352, 0, 352, 8, 8, 8)
+
+[node name="Polygon2D5" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(8, 640, 352, 640, 352, 632, 8, 632)
+
+[node name="Close" type="TextureButton" parent="."]
+offset_left = 200.0
+offset_top = 576.0
+offset_right = 344.0
+offset_bottom = 632.0
+texture_normal = ExtResource("2_7kwo2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://br6oeaje61kt5"]
+
+[ext_resource type="Script" path="res://scripts/ROOT.cs" id="1_kufkd"]
+[ext_resource type="Texture2D" uid="uid://e8xkyx8p6kp2" path="res://settingscog.png" id="2_h3g1t"]
+[ext_resource type="Script" path="res://scripts/SettingsSubwindow.gd" id="3_ksrnm"]
+[ext_resource type="PackedScene" uid="uid://cqxe4051x8oi4" path="res://settingssubwindowprefab.tscn" id="4_em63x"]
+[ext_resource type="AudioStream" uid="uid://bd46vculcghla" path="res://res/taco-bell-bong-sfx.mp3" id="5_yveke"]
+[ext_resource type="AudioStream" uid="uid://dao3b54n3wl8b" path="res://res/pan.wav" id="6_dc4an"]
+
+[node name="ROOT" type="Node2D"]
+script = ExtResource("1_kufkd")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.733333, 0.733333, 0.733333, 1)
+polygon = PackedVector2Array(0, 360, 640, 360, 640, 184, 640, 0, 0, 0)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(0, 8.09091)
+scale = Vector2(1, 0.966414)
+color = Color(0, 0, 0, 1)
+invert_enabled = true
+polygon = PackedVector2Array(8, 8, 632, 8.18182, 632, 180, 632, 355.861, 8, 355.861, 8, 176)
+
+[node name="Settings" type="TextureButton" parent="."]
+texture_filter = 1
+offset_left = 600.0
+offset_top = 320.0
+offset_right = 628.0
+offset_bottom = 348.0
+texture_normal = ExtResource("2_h3g1t")
+
+[node name="SettingsSubWindow" type="Window" parent="."]
+title = "Settings"
+size = Vector2i(360, 640)
+visible = false
+transient = true
+exclusive = true
+unresizable = true
+borderless = true
+transparent = true
+popup_window = true
+max_size = Vector2i(360, 640)
+content_scale_mode = 2
+content_scale_aspect = 1
+script = ExtResource("3_ksrnm")
+
+[node name="SETTINGSSUB" parent="SettingsSubWindow" instance=ExtResource("4_em63x")]
+
+[node name="bong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_yveke")
+volume_db = -15.928
+pitch_scale = 0.68
+max_polyphony = 4
+
+[node name="pan" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dc4an")
+volume_db = -26.234
+pitch_scale = 0.47
+max_polyphony = 2
+
+[connection signal="pressed" from="Settings" to="SettingsSubWindow" method="ToggleSettingsMenu"]
