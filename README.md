@@ -2,6 +2,8 @@
 A canny cat to help you get your files!
 This is a windows-only UI written by me while delirious to wrap [ytdl-patched](https://github.com/ytdl-patched/ytdl-patched). It started as a serious project but I started throwing a bunch of uncanny cats in it.
 
+I do not own or claim to own FFMPEG, ytdl, Godot or any images/sounds included in this project. The only part of this project created by me is the code.
+
 ## Usage
 
 1. Open the program, paste the applicable link into the top box.
