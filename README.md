@@ -29,3 +29,5 @@ To modify the Windows PATH environment variable (WIN-10)
 <li>In the Variable Value box, Press New -> Browse. Browse to the extraced FFMPEG folder, select the 'bin' folder inside and press OK.</li>
 <li>Click OK to close each dialog box.</li>
 </ol>
+
+If downloads start failing without errors try adding this PATH to the system PATH rather than the user PATH.
