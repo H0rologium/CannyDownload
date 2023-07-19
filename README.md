@@ -2,7 +2,14 @@
 A canny cat to help you get your files!
 This is a windows-only UI written by me while delirious to wrap [ytdl-patched](https://github.com/ytdl-patched/ytdl-patched). It started as a serious project but I started throwing a bunch of uncanny cats in it.
 
+## Usage
 
+1. Open the program, paste the applicable link into the top box.
+2. Select a path from the bottom of the window to save the file to. If every entry reads 'none', you will need to press the "New Location" button to add a **folder** path
+3. Ensure the proper path is selected (thinner, highlighted white)
+4. Press "Download" and enjoy
+
+Settings can be accessed at the bottom right of the program.
 
 ## Installation
 
