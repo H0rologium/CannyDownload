@@ -1,6 +1,6 @@
 # CannyDownload
 A canny cat to help you get your files!
-This is a windows-only UI written by me while delirious to wrap ytdl-patched. It started as a serious project but I started throwing a bunch of uncanny cats in it.
+This is a windows-only UI written by me while delirious to wrap [ytdl-patched](https://github.com/ytdl-patched/ytdl-patched). It started as a serious project but I started throwing a bunch of uncanny cats in it.
 
 
 
@@ -8,7 +8,7 @@ This is a windows-only UI written by me while delirious to wrap ytdl-patched. It
 
 **YOU NEED TO HAVE FFMPEG ADDED TO YOUR ENVIRONMENT PATH**
 ### To install ffmpeg:
-[You should use this specific version of FFMPEG] (https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip)
+[You should use this specific version of FFMPEG](https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip)
 If you already have a version installed it should be fine but [as per ytdl team ffmpeg versions can occaisionally break stuff](https://github.com/ytdl-patched/ytdl-patched/blob/ytdlp/README.md)
 
 Extract the FFMPEG folder wherever you please
