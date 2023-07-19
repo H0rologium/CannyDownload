@@ -1,11 +1,184 @@
-[gd_scene load_steps=7 format=3 uid="uid://br6oeaje61kt5"]
+[gd_scene load_steps=25 format=3 uid="uid://br6oeaje61kt5"]
 
 [ext_resource type="Script" path="res://scripts/ROOT.cs" id="1_kufkd"]
 [ext_resource type="Texture2D" uid="uid://e8xkyx8p6kp2" path="res://settingscog.png" id="2_h3g1t"]
+[ext_resource type="FontFile" uid="uid://bc0m6ubrsxwf3" path="res://res/VT323-Regular.ttf" id="2_rwumu"]
 [ext_resource type="Script" path="res://scripts/SettingsSubwindow.gd" id="3_ksrnm"]
 [ext_resource type="PackedScene" uid="uid://cqxe4051x8oi4" path="res://settingssubwindowprefab.tscn" id="4_em63x"]
 [ext_resource type="AudioStream" uid="uid://bd46vculcghla" path="res://res/taco-bell-bong-sfx.mp3" id="5_yveke"]
 [ext_resource type="AudioStream" uid="uid://dao3b54n3wl8b" path="res://res/pan.wav" id="6_dc4an"]
+[ext_resource type="Script" path="res://scripts/picknewlocation.gd" id="8_sk4uh"]
+[ext_resource type="Texture2D" uid="uid://5bj8gi8nftcp" path="res://res/be2d.png" id="9_8fdu5"]
+[ext_resource type="AudioStream" uid="uid://ckmoilvrgeukw" path="res://res/yay.ogg" id="9_s3fhv"]
+[ext_resource type="Texture2D" uid="uid://hfqj4lovhev3" path="res://res/ohyeahcat.png" id="10_6se3o"]
+[ext_resource type="Script" path="res://scripts/Animationhandler.gd" id="11_srkcm"]
+[ext_resource type="Texture2D" uid="uid://d2uuofrnq1iup" path="res://res/errorbg.png" id="12_2rifm"]
+[ext_resource type="Texture2D" uid="uid://c8axy2be4k3m7" path="res://res/darkbed.jpg" id="13_73bgr"]
+[ext_resource type="Texture2D" uid="uid://7el84me3p7da" path="res://res/head.png" id="14_yyaxw"]
+[ext_resource type="Texture2D" uid="uid://bcw0jrbkqfy3v" path="res://res/partayy.png" id="15_t7ct3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32s76"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsfob"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_bb1me"]
+resource_name = "ShowError"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/errorbg:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 2.5, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/errormsg:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 2.5, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yjall"]
+resource_name = "dip"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.26573]
+}
+
+[sub_resource type="Animation" id="Animation_p7fek"]
+resource_name = "dip_intro"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-192, -608), Vector2(-192, -48), Vector2(-192, -136), Vector2(-192, -88)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Sprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vg1dj"]
+resource_name = "remove_dip"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_s6kob"]
+resource_name = "dl_complete"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/partycat:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/partymsg:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/partycat:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(2000, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/partymsg:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(88, 192), Vector2(88, 192), Vector2(2000, 192)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p6l77"]
+_data = {
+"ShowError": SubResource("Animation_bb1me"),
+"dip": SubResource("Animation_yjall"),
+"dip_intro": SubResource("Animation_p7fek"),
+"dl_complete": SubResource("Animation_s6kob"),
+"remove_dip": SubResource("Animation_vg1dj")
+}
 
 [node name="ROOT" type="Node2D"]
 script = ExtResource("1_kufkd")
@@ -20,6 +193,157 @@ scale = Vector2(1, 0.966414)
 color = Color(0, 0, 0, 1)
 invert_enabled = true
 polygon = PackedVector2Array(8, 8, 632, 8.18182, 632, 180, 632, 355.861, 8, 355.861, 8, 176)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+color = Color(0.952941, 0.952941, 0.952941, 1)
+polygon = PackedVector2Array(16, 344, 16, 192, 600, 192, 600, 264, 600, 344)
+
+[node name="StartDLBtn" type="Button" parent="."]
+self_modulate = Color(0.545098, 0.545098, 0.545098, 1)
+offset_left = 416.0
+offset_top = 24.0
+offset_right = 568.0
+offset_bottom = 176.0
+icon = ExtResource("10_6se3o")
+expand_icon = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="StartDLBtn"]
+self_modulate = Color(0, 1, 0, 1)
+offset_left = -76.0
+offset_top = 56.0
+offset_right = 228.0
+offset_bottom = 80.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Download"
+
+[node name="histPath1" type="RichTextLabel" parent="." groups=["HISTORYPATH"]]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 192.0
+offset_right = 592.0
+offset_bottom = 216.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_rwumu")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "none"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button" type="Button" parent="histPath1"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 24.0
+
+[node name="histPath2" type="RichTextLabel" parent="." groups=["HISTORYPATH"]]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 216.0
+offset_right = 592.0
+offset_bottom = 240.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_rwumu")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "none"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button2" type="Button" parent="histPath2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 24.0
+
+[node name="histPath3" type="RichTextLabel" parent="." groups=["HISTORYPATH"]]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 240.0
+offset_right = 592.0
+offset_bottom = 264.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_rwumu")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "none"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button3" type="Button" parent="histPath3"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 24.0
+
+[node name="histPath4" type="RichTextLabel" parent="." groups=["HISTORYPATH"]]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 264.0
+offset_right = 592.0
+offset_bottom = 288.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_rwumu")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "none"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button4" type="Button" parent="histPath4"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 24.0
+
+[node name="histPath5" type="RichTextLabel" parent="." groups=["HISTORYPATH"]]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 288.0
+offset_right = 592.0
+offset_bottom = 312.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_rwumu")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "none"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button5" type="Button" parent="histPath5"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 24.0
+
+[node name="histPath6" type="RichTextLabel" parent="." groups=["HISTORYPATH"]]
+texture_filter = 1
+offset_left = 16.0
+offset_top = 312.0
+offset_right = 592.0
+offset_bottom = 336.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_rwumu")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "none"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Button6" type="Button" parent="histPath6"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 24.0
 
 [node name="Settings" type="TextureButton" parent="."]
 texture_filter = 1
@@ -58,4 +382,178 @@ volume_db = -26.234
 pitch_scale = 0.47
 max_polyphony = 2
 
+[node name="yay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_s3fhv")
+max_polyphony = 2
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 320.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(0.254902, 0.6, 0.6, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_32s76")
+virtual_keyboard_type = 7
+middle_mouse_paste_enabled = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LineEdit"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_top = -24.0
+offset_right = 304.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Paste Link here"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+self_modulate = Color(0, 1, 0, 1)
+offset_left = -8.0
+offset_top = 168.0
+offset_right = 296.0
+offset_bottom = 192.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Download location"
+
+[node name="PickNewLocation" type="Button" parent="."]
+self_modulate = Color(0, 1, 0, 1)
+texture_filter = 1
+offset_left = 232.0
+offset_top = 168.0
+offset_right = 320.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("2_rwumu")
+theme_override_font_sizes/font_size = 16
+text = "New location"
+script = ExtResource("8_sk4uh")
+
+[node name="Sprite2D" type="Sprite2D" parent="PickNewLocation"]
+visible = false
+position = Vector2(-376, -224)
+texture = ExtResource("9_8fdu5")
+centered = false
+
+[node name="LineEdit" type="LineEdit" parent="PickNewLocation"]
+visible = false
+layout_mode = 0
+offset_left = -216.0
+offset_top = -8.0
+offset_right = 400.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_selected_color = Color(0.254902, 0.6, 0.6, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_32s76")
+virtual_keyboard_type = 7
+middle_mouse_paste_enabled = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PickNewLocation/LineEdit"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 0
+offset_left = 168.0
+offset_top = -24.0
+offset_right = 472.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+bbcode_enabled = true
+text = "[center]Type or Paste path to a folder here"
+
+[node name="Button" type="Button" parent="PickNewLocation"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = -40.0
+offset_top = 32.0
+offset_right = 216.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_rwumu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hsfob")
+text = "Submit"
+
+[node name="Button2" type="Button" parent="PickNewLocation/Button"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_top = 32.0
+offset_right = 256.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_rwumu")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_hsfob")
+text = "Cancel"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_p6l77")
+}
+script = ExtResource("11_srkcm")
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(-192, -608)
+texture = ExtResource("13_73bgr")
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimationPlayer/Sprite2D"]
+self_modulate = Color(0.513726, 0.513726, 0.513726, 1)
+position = Vector2(376, 120)
+scale = Vector2(0.348348, 0.345515)
+texture = ExtResource("14_yyaxw")
+centered = false
+
+[node name="Button" type="Button" parent="AnimationPlayer/Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.0431373)
+offset_right = 1070.0
+offset_bottom = 600.0
+
+[node name="partycat" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(2000, 0)
+scale = Vector2(0.632411, 0.35964)
+texture = ExtResource("15_t7ct3")
+centered = false
+
+[node name="partymsg" type="RichTextLabel" parent="AnimationPlayer"]
+offset_left = 2088.0
+offset_top = 192.0
+offset_right = 2560.0
+offset_bottom = 248.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]DOWNLOAD COMPLETE"
+scroll_active = false
+
+[node name="errorbg" type="Sprite2D" parent="AnimationPlayer"]
+self_modulate = Color(1, 1, 1, 0)
+texture = ExtResource("12_2rifm")
+centered = false
+
+[node name="errormsg" type="RichTextLabel" parent="AnimationPlayer"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -16.0
+offset_top = 95.0
+offset_right = 656.0
+offset_bottom = 311.0
+mouse_filter = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 56
+bbcode_enabled = true
+text = "[center]ERROR"
+scroll_active = false
+
+[connection signal="pressed" from="StartDLBtn" to="PickNewLocation" method="_on_start_dl_btn_pressed"]
+[connection signal="pressed" from="histPath1/Button" to="." method="SelectKnownPath" binds= [1]]
+[connection signal="pressed" from="histPath2/Button2" to="." method="SelectKnownPath" binds= [2]]
+[connection signal="pressed" from="histPath3/Button3" to="." method="SelectKnownPath" binds= [3]]
+[connection signal="pressed" from="histPath4/Button4" to="." method="SelectKnownPath" binds= [4]]
+[connection signal="pressed" from="histPath5/Button5" to="." method="SelectKnownPath" binds= [5]]
+[connection signal="pressed" from="histPath6/Button6" to="." method="SelectKnownPath" binds= [6]]
 [connection signal="pressed" from="Settings" to="SettingsSubWindow" method="ToggleSettingsMenu"]
+[connection signal="pressed" from="PickNewLocation" to="PickNewLocation" method="PickNew"]
+[connection signal="text_submitted" from="PickNewLocation/LineEdit" to="PickNewLocation" method="_on_file_dialog_dir_selected"]
+[connection signal="pressed" from="PickNewLocation/Button" to="PickNewLocation" method="_on_file_dialog_dir_selected" binds= ["useVal"]]
+[connection signal="pressed" from="PickNewLocation/Button/Button2" to="PickNewLocation" method="_on_file_dialog_dir_selected" binds= ["L"]]

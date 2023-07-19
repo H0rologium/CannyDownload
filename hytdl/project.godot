@@ -20,6 +20,10 @@ boot_splash/image="res://splash.png"
 config/icon="res://icon.svg"
 boot_splash/minimum_display_time=1000
 
+[autoload]
+
+DownloadManager="*res://scripts/DOWNLOAD_MANAGER.gd"
+
 [display]
 
 window/size/viewport_width=640

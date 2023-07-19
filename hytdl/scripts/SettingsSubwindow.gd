@@ -1,6 +1,7 @@
 extends Window
 
-#@onready var ROOT_n = get_tree().get_node("/root/ROOT")
+@onready var ROOT = get_tree().get_current_scene().get_node("/root/ROOT")
+
 func _ready():
 	self.visible = false
 	return
@@ -10,8 +11,8 @@ func ToggleSettingsMenu():
 	$"../bong".play()
 	self.visible = !isOpen
 	isOpen = !isOpen
-	
 	if !self.visible:
+		ROOT.call("CallSaveConfig")
 		return
 	#Get screen dimensions
 	var coords = DisplayServer.screen_get_size()
