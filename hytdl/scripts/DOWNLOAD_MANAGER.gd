@@ -7,6 +7,7 @@ signal sig_invalid_save_location
 signal sig_console_error
 signal sig_dl_start
 signal sig_dl_complete
+signal sig_update_available
 var latestConsoleError:String = ""
 
 func StartDownload():

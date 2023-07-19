@@ -51,5 +51,18 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_oa5w7")
 text = "Erase Saved Locations"
 
+[node name="updatebtn" type="Button" parent="."]
+texture_filter = 1
+offset_left = 40.0
+offset_top = 536.0
+offset_right = 320.0
+offset_bottom = 569.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_eleu1")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_oa5w7")
+text = "NEW UPDATE AVAILABLE"
+
 [connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="erasavloc" to="." method="_on_erasavloc_pressed"]
+[connection signal="pressed" from="updatebtn" to="." method="_on_updatebtn_pressed"]

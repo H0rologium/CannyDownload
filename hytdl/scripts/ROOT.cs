@@ -60,9 +60,13 @@ public partial class ROOT : Node2D
 
 	public override void _Ready()
 	{
+		Node global = (Node) GetNode("/root/DownloadManager");
 		GD.Print($"Current operating directory: {System.Environment.CurrentDirectory}");
 		GD.Print($"Setting to: {AppDomain.CurrentDomain.BaseDirectory}");
 		System.Environment.CurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+		//Check and see if the program needs an update
+		File.WriteAllText($"{System.Environment.CurrentDirectory}/version.txt",DEFAULT_CONFIG["version"].AsString());
+		if(!System.Environment.UserName.ToLower().Equals("horologium"))RunConsoleEnv($"updater.exe \"{System.Environment.CurrentDirectory}\"",true);
 		saveLocations = new();
 		DisplayServer.WindowSetTitle("Canny Downloader");
 		//Read config
@@ -89,6 +93,9 @@ public partial class ROOT : Node2D
 		}
 		if (!System.IO.File.Exists($"{System.Environment.CurrentDirectory}/ytdl.exe")) GD.PrintErr("Unable to retrieve latest version of ytdl! do not report this to ytdl");
 		else RunConsoleEnv("ytdl -U",true);
+		if (File.Exists($"{System.Environment.CurrentDirectory}/update.txt"))global.EmitSignal("sig_update_available");
+		if ((File.Exists($"{System.Environment.CurrentDirectory}/update.txt")))File.Delete($"{System.Environment.CurrentDirectory}/update.txt");
+		if ((File.Exists($"{System.Environment.CurrentDirectory}/version.txt")))File.Delete($"{System.Environment.CurrentDirectory}/version.txt");
 	}
 
 	private void AppendNewSaveLocation(string path,bool addToCollection = false)
