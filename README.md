@@ -8,6 +8,7 @@ I do not own or claim to own FFMPEG, ytdl, Godot or any images/sounds included i
 
 1. Open the program, paste the applicable link into the top box.
 2. Select a path from the bottom of the window to save the file to. If every entry reads 'none', you will need to press the "New Location" button to add a **folder** path
+2a. ## Paths are case-sensitive!
 3. Ensure the proper path is selected (thinner, highlighted white)
 4. Press "Download" and enjoy
 
